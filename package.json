@@ -1,0 +1,21 @@
+{
+  "name": "deep-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "rm -rf ./dist && tsc -p tsconfig.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^3.9.5"
+  },
+  "devDependencies": {
+    "@types/jest": "26.0.3",
+    "ts-node": "^8.10.2",
+    "jest": "26.1.0"
+  }
+}

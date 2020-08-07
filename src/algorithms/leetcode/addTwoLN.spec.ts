@@ -1,5 +1,5 @@
-import { addTwoNumbersRecursive as addTwoNumbers } from './addTwoLN'
-import { LinkedList } from '../../data-structure'
+import { addTwoNumbers } from './addTwoLN'
+import { Node, LinkedList } from '../../data-structure'
 
 describe('addTwoNumbers', () => {
   it('Should have correct value on same length LN', () => {
@@ -24,11 +24,11 @@ describe('addTwoNumbers', () => {
 
   it('Different length and carrys around', () => {
     // 13 + 8 = 21
-    const l1 = LinkedList.create([3, 1])
-    const l2 = LinkedList.create([8])
+    const l1 = new Node(3, new Node(1))
+    const l2 = new Node(8)
 
-    const result = addTwoNumbers(l1, l2).toArray()
-    expect(result).toEqual([1, 2])
+    const result = new LinkedList(addTwoNumbers(l1, l2)).join()
+    expect(result).toEqual('1,2')
   })
 
   /* it('Should be correct when sum has more digits', () => {

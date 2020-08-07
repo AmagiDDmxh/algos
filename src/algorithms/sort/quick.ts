@@ -1,6 +1,5 @@
 import { swap } from "../../common"
 
-let swapCount = 0
 export const partition = (array: number[], left = 0, right: number = array.length - 1) => {
   const pivotPos = right
   const pivot = array[pivotPos]
@@ -17,22 +16,19 @@ export const partition = (array: number[], left = 0, right: number = array.lengt
     }
     else {
       swap(array, left, right)
-      swapCount++
     }
   }
 
   swap(array, left, pivotPos)
-  swapCount++
   return left
 }
 
-export const quick = (array: number[], debug = false): number[] => {
+export const quick = (array: number[]): number[] => {
   const result = array.slice()
   const left = 0
   const right = array.length - 1
 
   function quickHelper(arr: number[], left: number, right: number): void {
-    debug && console.log(arr, left, right)
     if (left < right) {
       const pivotPos = partition(arr, left, right)
 
@@ -43,8 +39,6 @@ export const quick = (array: number[], debug = false): number[] => {
 
   
   quickHelper(result, left, right)
-  console.log(swapCount, array.length)
-  swapCount = 0
   return result
 }
 

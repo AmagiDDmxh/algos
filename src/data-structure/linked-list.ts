@@ -57,25 +57,48 @@ export class LinkedList<T> {
  */
 
 export class LinkedList<T = number> {
+  public count = 0
+
   constructor(
-    public element: T,
-    public next?: LinkedList<T>
+    public head?: Node<T>
   ) { }
+
+  last(): Node<T> {
+    if (!this.head) return null
+    let current = this.head
+
+    while (current.next) {
+      current = current.next
+    }
+
+    return current
+  }
+
+  push(element: T) {
+    if (!this.head) {
+      this.head = new Node(element)
+      this.count++
+    } else {
+      let current = this.last()
+      current.next = new Node(element)
+      this.count++
+    }
+  }
 
   static create<T>(arr: T[]): LinkedList<T> {
     let i = 0
-    const head = new LinkedList(arr[i])
-    let tail = head
+    const head = new Node(arr[i])
+    let current = head
 
     while (++i < arr.length) {
-      tail.next = new LinkedList(arr[i])
-      tail = tail.next
+      current.next = new Node(arr[i])
+      current = current.next
     }
-    return head
+    return new LinkedList(head)
   }
 
   toArray() {
-    let curr: LinkedList<T> = this
+    let curr: Node<T> = this.head
     let result = [curr.element]
 
     while (curr.next) {
@@ -85,7 +108,7 @@ export class LinkedList<T = number> {
     return result
   }
 
-  join(div: string = ',') {
+  join(div?: string) {
     return this.toArray().join(div)
   }
 }

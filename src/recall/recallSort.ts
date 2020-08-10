@@ -18,6 +18,7 @@ function partition(arr: number[], left: number, right: number) {
   return left
 }
 
+// @ts-ignore
 function quick(arr: number[], left = 0, right = arr.length - 1) {
   const result = arr.slice()
 

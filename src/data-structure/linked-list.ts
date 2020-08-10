@@ -4,7 +4,6 @@ export class Node<T> {
     public next?: Node<T>
   ) { }
 
-  public toArray = LinkedList.prototype.toArray
 }
 
 export class DoublyNode<T> extends Node<T> {

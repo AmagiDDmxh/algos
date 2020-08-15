@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "rm -rf ./dist && tsc -p tsconfig.json",
-    "play": "jest -t 'playground'"
+    "play": "jest -t 'playground'",
+    "prettier": "prettier '**/*.{ts,js,json}' --write"
   },
   "keywords": [],
   "author": "",

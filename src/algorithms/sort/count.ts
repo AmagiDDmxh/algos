@@ -56,15 +56,14 @@ export function count(arr: number[]) {
   }
 
   for (let i = 1; i < store.length; i++) {
-    store[i] += store[i-1]
+    store[i] += store[i - 1]
   }
 
   for (let i = 0; i < arr.length; i++) {
     output[store[arr[i]] - 1] = arr[i]
     store[arr[i]]--
   }
-  
-  
+
   return output
 }
 
@@ -83,7 +82,7 @@ export function count2(arr: number[]) {
   }
 
   // console.log(store)
-  
+
   for (let index = 0; index < store.length; index++) {
     while (store[index] !== 0) {
       output.push(index)

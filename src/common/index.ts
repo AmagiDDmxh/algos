@@ -15,4 +15,3 @@ export function shuffle(arr: number[]) {
 
   return output
 }
-

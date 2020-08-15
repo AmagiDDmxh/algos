@@ -7,7 +7,7 @@ type Target = 'T'
 function parseMaze(mazes: string[]) {
   const result = []
   for (const maze of mazes) {
-      result.push(maze.split(''))
+    result.push(maze.split(''))
   }
   return result
 }

@@ -6,16 +6,16 @@ type ParamType<T> = T extends (param: infer P) => any ? P : T
 
 const colors = {
   red: 'red',
-  blue: 'blue'
-};
+  blue: 'blue',
+}
 
-type Colors = keyof typeof colors;
+type Colors = keyof typeof colors
 
-let color: Colors;
+let color: Colors
 
 type S<T extends string> = { [K in T]: K }
 
-let i: S<"a" | "b"> = {
+let i: S<'a' | 'b'> = {
   b: 'b',
-  "a": "a"
+  a: 'a',
 }

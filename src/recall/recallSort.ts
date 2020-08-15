@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { swap } from "src/common"
+import { swap } from 'src/common'
 
 function partition(arr: number[], left: number, right: number) {
   const pivotPosition = right
@@ -50,4 +50,3 @@ function bubble(arr: number[]) {
   }
   return result
 }
-

@@ -1,18 +1,39 @@
-export const solveKnapsack = (profits: number[], weights: number[], capacity: number) => {
-  function knapsackRecursive(profits: number[], weights: number[], capacity: number, currentIndex = 0): number {
+export const solveKnapsack = (
+  profits: number[],
+  weights: number[],
+  capacity: number
+) => {
+  function knapsackRecursive(
+    profits: number[],
+    weights: number[],
+    capacity: number,
+    currentIndex = 0
+  ): number {
     // console.log(profits, weights, capacity, currentIndex)
-    
+
     if (capacity <= 0 || currentIndex >= profits.length) {
       return 0
     }
 
     let firstProfit = 0
     if (weights[currentIndex] <= capacity) {
-      firstProfit = profits[currentIndex] + knapsackRecursive(profits, weights, capacity - weights[currentIndex], currentIndex + 1)
+      firstProfit =
+        profits[currentIndex] +
+        knapsackRecursive(
+          profits,
+          weights,
+          capacity - weights[currentIndex],
+          currentIndex + 1
+        )
     }
     // console.log('first profit', firstProfit, currentIndex)
 
-    const secondProfit = knapsackRecursive(profits, weights, capacity, currentIndex + 1)
+    const secondProfit = knapsackRecursive(
+      profits,
+      weights,
+      capacity,
+      currentIndex + 1
+    )
     // console.log('second profit', secondProfit, currentIndex)
 
     return Math.max(firstProfit, secondProfit)
@@ -20,27 +41,48 @@ export const solveKnapsack = (profits: number[], weights: number[], capacity: nu
   return knapsackRecursive(profits, weights, capacity)
 }
 
-export const solveKnapsackMemo = (profits: number[], weights: number[], capacity: number) => {
+export const solveKnapsackMemo = (
+  profits: number[],
+  weights: number[],
+  capacity: number
+) => {
   const dp: number[][] = []
-  function knapsackRecursive(profits: number[], weights: number[], capacity: number, currentIndex = 0): number {
+  function knapsackRecursive(
+    profits: number[],
+    weights: number[],
+    capacity: number,
+    currentIndex = 0
+  ): number {
     // console.log(profits, weights, capacity, currentIndex)
-    
+
     if (capacity <= 0 || currentIndex >= profits.length) {
       return 0
     }
 
     dp[currentIndex] = dp[currentIndex] || []
-    if (typeof dp[currentIndex][capacity] !== "undefined") {
+    if (typeof dp[currentIndex][capacity] !== 'undefined') {
       return dp[currentIndex][capacity]
     }
 
     let firstProfit = 0
     if (weights[currentIndex] <= capacity) {
-      firstProfit = profits[currentIndex] + knapsackRecursive(profits, weights, capacity - weights[currentIndex], currentIndex + 1)
+      firstProfit =
+        profits[currentIndex] +
+        knapsackRecursive(
+          profits,
+          weights,
+          capacity - weights[currentIndex],
+          currentIndex + 1
+        )
     }
     // console.log('first profit', firstProfit, currentIndex)
 
-    const secondProfit = knapsackRecursive(profits, weights, capacity, currentIndex + 1)
+    const secondProfit = knapsackRecursive(
+      profits,
+      weights,
+      capacity,
+      currentIndex + 1
+    )
     // console.log('second profit', secondProfit, currentIndex)
 
     dp[currentIndex][capacity] = Math.max(firstProfit, secondProfit)

@@ -1,18 +1,14 @@
 export class Node<T> {
-  constructor(
-    public element?: T,
-    public next?: Node<T>
-  ) { }
-
+  constructor(public element?: T, public next?: Node<T>) {}
 }
 
 export class DoublyNode<T> extends Node<T> {
   constructor(
-    public element: T, 
-    public next?: DoublyNode<T>, 
+    public element: T,
+    public next?: DoublyNode<T>,
     public prev?: DoublyNode<T>
   ) {
-    super(element, next);
+    super(element, next)
   }
 }
 
@@ -58,9 +54,7 @@ export class LinkedList<T> {
 export class LinkedList<T = number> {
   public count = 0
 
-  constructor(
-    public head?: Node<T>
-  ) { }
+  constructor(public head?: Node<T>) {}
 
   last(): Node<T> {
     if (!this.head) return null

@@ -34,6 +34,8 @@ Includes common algorithm like sorting, Techniques like sliding window, and quiz
    - Categorizing Sort
      - Count
      - Quick
+ - Search
+   - Binary Search
 
 **Data Structure**
 

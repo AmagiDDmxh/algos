@@ -1,6 +1,10 @@
-import { swap } from "../../common"
+import { swap } from '../../common'
 
-export const partition = (array: number[], left = 0, right: number = array.length - 1) => {
+export const partition = (
+  array: number[],
+  left = 0,
+  right: number = array.length - 1
+) => {
   const pivotPos = right
   const pivot = array[pivotPos]
 
@@ -13,8 +17,7 @@ export const partition = (array: number[], left = 0, right: number = array.lengt
 
     if (left >= right) {
       break
-    }
-    else {
+    } else {
       swap(array, left, right)
     }
   }
@@ -37,7 +40,6 @@ export const quick = (array: number[]): number[] => {
     }
   }
 
-  
   quickHelper(result, left, right)
   return result
 }

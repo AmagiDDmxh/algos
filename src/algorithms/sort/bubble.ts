@@ -16,12 +16,12 @@ export function bubble(arr: number[]) {
   const result = arr.slice()
   let offset = 0
   let sorted = false
-  
+
   while (!sorted) {
     sorted = true
     for (let i = 1; i < result.length - offset; i++) {
       if (result[i - 1] > result[i]) {
-        swap(result, i, i-1)
+        swap(result, i, i - 1)
         sorted = false
       }
     }
@@ -40,7 +40,7 @@ export function cocktailShaker(arr: number[]) {
     let newn = 0
     for (let i = 1; i < n; i++) {
       if (result[i - 1] > result[i]) {
-        swap(result, i, i-1)
+        swap(result, i, i - 1)
         newn = i
       }
     }

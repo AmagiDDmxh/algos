@@ -22,13 +22,12 @@ export function selection(arr: number[]) {
   return result
 }
 
-
 /* 
   FIXME: This don't work
  */
 export function selectionAlternate(arr: number[]) {
   if (!arr.length) return arr
-  
+
   const result: Array<number> = []
 
   for (let i = 0; i < arr.length; i++) {

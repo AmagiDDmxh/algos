@@ -1,9 +1,9 @@
 import { DoublyNode as BinaryTree } from '../linked-list'
-import { 
-  // search, 
-  insert, 
-  traverseInorder, 
-  deletion
+import {
+  // search,
+  insert,
+  traverseInorder,
+  deletion,
 } from '../tree'
 
 describe('Binary Tree', () => {
@@ -77,9 +77,9 @@ describe('Binary Tree', () => {
       const t = new BinaryTree(2)
       insert(1, t)
       insert(3, t)
-      
+
       expect(traverseInorder(t).toString()).toEqual('1,2,3')
-      deletion(2, t) 
+      deletion(2, t)
       expect(traverseInorder(t).toString()).toEqual('1,3')
       expect(t.element).toEqual(3)
       expect(t.prev.element).toEqual(1)
@@ -101,8 +101,5 @@ describe('Binary Tree', () => {
       expect(t.prev.prev.element).toEqual(1)
       expect(t.prev.next.element).toEqual(4)
     })
-
   })
-
-
 })

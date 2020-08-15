@@ -1,4 +1,3 @@
-
 function distinctCharacter(str: String) {
   return new Set(str.split('')).size
 }
@@ -17,7 +16,10 @@ function distinctCharacter(str: String) {
 // possible substring
 // a, r, aa, c, i
 
-export function myLongestSubstringWithKDistinctCharacters(str: String, K: number) {
+export function myLongestSubstringWithKDistinctCharacters(
+  str: String,
+  K: number
+) {
   // let start = 0
   let max = Number.NEGATIVE_INFINITY
   let store = ''
@@ -36,14 +38,17 @@ export function myLongestSubstringWithKDistinctCharacters(str: String, K: number
   // return max === Number.NEGATIVE_INFINITY ? 0 : max
 }
 
-export function longestSubstringWithKDistinctCharacters(str: String, K: number) {
+export function longestSubstringWithKDistinctCharacters(
+  str: String,
+  K: number
+) {
   let start = 0
   let max = Number.NEGATIVE_INFINITY
   let store = new Map()
 
   for (let end = 0; end < str.length; end++) {
     const currentCharacter = str[end]
-    const storeNumber = store.get(currentCharacter) + 1 
+    const storeNumber = store.get(currentCharacter) + 1
     store.set(currentCharacter, storeNumber || 1)
 
     while (store.size > K) {

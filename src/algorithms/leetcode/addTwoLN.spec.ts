@@ -6,7 +6,6 @@ describe('addTwoNumbers', () => {
     // FIXME:
     // const l1 = LinkedList.create([2, 4, 3])
     // const l2 = LinkedList.create([5, 6, 4])
-
     // const result = addTwoNumbers(l1, l2).toArray()
     // console.log(result)
     // expect(result).toEqual([7, 0, 8])
@@ -17,7 +16,6 @@ describe('addTwoNumbers', () => {
     // 123 + 1234 = 1357
     // const l1 = LinkedList.create([3, 2, 1])
     // const l2 = LinkedList.create([4, 3, 2, 1])
-
     // const result = addTwoNumbers(l1, l2).toArray()
     // expect(result).toEqual([7, 5, 3, 1])
   })

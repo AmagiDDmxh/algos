@@ -27,7 +27,7 @@ export const smallestSubarrayBruteForce = (s: number, arr: number[]) => {
 
 // 7 [2,1,5,2,3,2]
 //        s e
-// min = 3 -> 
+// min = 3 ->
 // sum = 2+1+5-2+2
 export const smallestSubarray = (s: number, arr: number[]) => {
   let start = 0

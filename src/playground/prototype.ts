@@ -10,4 +10,3 @@ function SuperType(this: SuperType, name: string) {
 }
 
 // const superType = new SuperType('name')
-

@@ -5,18 +5,21 @@ var demo = [
   { id: 4, text: '第二主题' },
   { id: 1, text: '中心主题' },
 ]
-const props = (item, ...prop) => prop.reduce((acc, cur) => ({ ...acc, [cur]: item[cur] }), {})
-const displayProps = item => props(item, 'id', 'text')
-const parentProps = item => ({...displayProps(item), ...props(item, 'children')})
+const props = (item, ...prop) =>
+  prop.reduce((acc, cur) => ({ ...acc, [cur]: item[cur] }), {})
+const displayProps = (item) => props(item, 'id', 'text')
+const parentProps = (item) => ({
+  ...displayProps(item),
+  ...props(item, 'children'),
+})
 var result = []
-demo.forEach(item => {
+demo.forEach((item) => {
   if (item.parent) {
-    const parent = demo.find(d => d.id === item.parent)
+    const parent = demo.find((d) => d.id === item.parent)
     if (parent) {
       if (parent.children && parent.children.length) {
         parent.children.push(item)
-      }
-      else {
+      } else {
         parent.children = [item]
       }
     }

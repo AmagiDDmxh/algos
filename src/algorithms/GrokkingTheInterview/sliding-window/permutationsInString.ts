@@ -1,8 +1,8 @@
 const findPermutation = (str: string, pattern: string) => {
   let start = 0,
     matched = 0,
-    map = new Map();
-  
+    map = new Map()
+
   for (const char of pattern) {
     map.set(char, (map.get(char) || 0) + 1)
   }

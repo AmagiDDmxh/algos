@@ -1,17 +1,14 @@
 import { finderBruteForce, finderSliding } from '../intro'
 import { maxSubarray } from '../maxSubarray'
-import { 
-  // smallestSubarrayBruteForce, 
-  smallestSubarray 
-} from '../smallestSubarrayOfSum'
-import { 
-  myLongestSubstringWithKDistinctCharacters, 
-  longestSubstringWithKDistinctCharacters
-} from '../longestSubstringWithKDistinctCharacters'
 import {
-  lengthOfLongestSubstring
-} from '../LongestSubstringWithSameLettersAfterReplacement'
-
+  // smallestSubarrayBruteForce,
+  smallestSubarray,
+} from '../smallestSubarrayOfSum'
+import {
+  myLongestSubstringWithKDistinctCharacters,
+  longestSubstringWithKDistinctCharacters,
+} from '../longestSubstringWithKDistinctCharacters'
+import { lengthOfLongestSubstring } from '../LongestSubstringWithSameLettersAfterReplacement'
 
 describe('Using sliding method', () => {
   const input = [1, 3, 2, 6, -1, 4, 1, 8, 2]
@@ -50,7 +47,7 @@ describe('Using sliding method', () => {
 
   describe('Longest substring with K distinct characters', () => {
     type Input = [string, number]
-    const input1: Input = ['araaci', 2]    
+    const input1: Input = ['araaci', 2]
     const input2: Input = ['araaci', 1]
     const input3: Input = ['cbbebi', 3]
 

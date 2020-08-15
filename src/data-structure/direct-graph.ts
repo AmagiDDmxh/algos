@@ -1,11 +1,9 @@
-import { Queue } from "./queue"
+import { Queue } from './queue'
 
 export class Graph<A, T> {
   public map: Map<A, T> = new Map()
 
-  constructor(public name: string) {
-
-  }
+  constructor(public name: string) {}
 
   setMap(key: A, value: T) {
     this.map.set(key, value)
@@ -15,7 +13,7 @@ export class Graph<A, T> {
 class City extends Graph<any, number> {
   public get routes() {
     return this.map
-  } 
+  }
 
   addRoute = this.setMap
 }
@@ -54,7 +52,9 @@ function dijkstra(startingCity: City, otherCities: City[]) {
 
   routesFromCity.set(startingCity, [0, startingCity])
 
-  otherCities.forEach(city => routesFromCity.set(city, [Number.MAX_SAFE_INTEGER, null]))
+  otherCities.forEach((city) =>
+    routesFromCity.set(city, [Number.MAX_SAFE_INTEGER, null])
+  )
 
   const visitedCities: City[] = []
   let currentCity = startingCity
@@ -63,16 +63,25 @@ function dijkstra(startingCity: City, otherCities: City[]) {
     visitedCities.push(currentCity)
 
     currentCity.routes.forEach((price, city) => {
-      if (routesFromCity.get(city)[0] > price + routesFromCity.get(currentCity)[0]) {
-        routesFromCity.set(city, [price + routesFromCity.get(currentCity)[0], currentCity])
+      if (
+        routesFromCity.get(city)[0] >
+        price + routesFromCity.get(currentCity)[0]
+      ) {
+        routesFromCity.set(city, [
+          price + routesFromCity.get(currentCity)[0],
+          currentCity,
+        ])
       }
     })
-    
+
     currentCity = null
     let cheapestRouteFromCurrentCity = Number.MAX_SAFE_INTEGER
 
     routesFromCity.forEach((priceInfo, city) => {
-      if (priceInfo[0] < cheapestRouteFromCurrentCity && !visitedCities.includes(city)) {
+      if (
+        priceInfo[0] < cheapestRouteFromCurrentCity &&
+        !visitedCities.includes(city)
+      ) {
         cheapestRouteFromCurrentCity = priceInfo[0]
         currentCity = city
       }
@@ -90,7 +99,6 @@ const B = new City('Boston')
 const C = new City('Chicago')
 const D = new City('Denver')
 const E = new City('El Paso')
-
 
 A.addRoute(B, 100)
 A.addRoute(D, 160)

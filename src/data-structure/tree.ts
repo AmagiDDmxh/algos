@@ -61,13 +61,12 @@ export function insert<T = number>(ele: T, root: DoublyNode<T>): DoublyNode<T> {
 }
 
 export function remove<T = number>(ele: T, root: DoublyNode<T>): void {
-  
   // 1. root has no children
   //   1.1 remove it self
   let node = root
   let nodeParent: DoublyNode<T> = null
   let nextString: 'next' | 'prev' = null
-  
+
   while (node && node.element !== ele) {
     if (ele < node.element) {
       nodeParent = node
@@ -85,7 +84,7 @@ export function remove<T = number>(ele: T, root: DoublyNode<T>): void {
   }
 
   // if is the root and no children
-  if (!nodeParent && (!node.prev && !node.next)) {
+  if (!nodeParent && !node.prev && !node.next) {
     return
   }
 
@@ -100,7 +99,7 @@ export function remove<T = number>(ele: T, root: DoublyNode<T>): void {
   // 2. root has one child
   //   2.1 is leaf so remove itself and replace chlid to itself
   //   2.2 not a leaf
-  if ((node.prev && !node.next)) {
+  if (node.prev && !node.next) {
     if (nodeParent) {
       nodeParent[nextString] = node.prev
       return
@@ -109,7 +108,7 @@ export function remove<T = number>(ele: T, root: DoublyNode<T>): void {
     return
   }
 
-  if ((!node.prev && node.next)) {
+  if (!node.prev && node.next) {
     if (nodeParent) {
       nodeParent[nextString] = node.next
       return
@@ -118,7 +117,6 @@ export function remove<T = number>(ele: T, root: DoublyNode<T>): void {
     return
   }
 
-
   // 3. root has two children
   //   3.1 find the successor
   //     3.1.1 if successor has right tree
@@ -126,7 +124,7 @@ export function remove<T = number>(ele: T, root: DoublyNode<T>): void {
   //     3.1.2 successor was the leftmost tree on the right
   let successor = node.next
   let successorParent = node
-  
+
   while (successor.prev) {
     successorParent = successor
     successor = successor.prev
@@ -139,7 +137,6 @@ export function remove<T = number>(ele: T, root: DoublyNode<T>): void {
   }
   return
 }
-
 
 /* 
   Reference from 'A Common Sense Guide to Data Structures and Algorithms' c12_p167-168 by Jay Wengrow
@@ -165,13 +162,16 @@ export function deletion<T>(val: T, node: DoublyNode<T>): DoublyNode<T> {
   }
   if (!node.next) {
     return node.prev
-  } 
+  }
 
   node.next = lift(node.next, node)
   return node
 }
 
-function lift<T>(node: DoublyNode<T>, nodeToDelete: DoublyNode<T>): DoublyNode<T> {
+function lift<T>(
+  node: DoublyNode<T>,
+  nodeToDelete: DoublyNode<T>
+): DoublyNode<T> {
   if (node.prev) {
     node.prev = lift(node.prev, nodeToDelete)
     return node

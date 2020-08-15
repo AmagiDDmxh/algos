@@ -1,4 +1,4 @@
-const braceEnums: {[brace: string]: string} = {
+const braceEnums: { [brace: string]: string } = {
   '{': '}',
   '[': ']',
   '(': ')',
@@ -11,7 +11,7 @@ function parse(str: string) {
   const stack = []
 
   for (let i = 0; i < str.length; i++) {
-    const char = str[i];
+    const char = str[i]
     if (isOpening(char)) {
       stack.push(char)
     } else if (isClosing(char)) {

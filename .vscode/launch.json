@@ -8,14 +8,10 @@
       "type": "node",
       "request": "launch",
       "name": "NodeJS runner",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
+      "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/algorithms/GrokkingTheInterview/sliding-window/longestSubstringWithKDistinctCharacter.ts",
       "preLaunchTask": "tsc: build - tsconfig.json",
-      "outFiles": [
-        "${workspaceFolder}/dist/**/*.js"
-      ]
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"]
     }
   ]
 }

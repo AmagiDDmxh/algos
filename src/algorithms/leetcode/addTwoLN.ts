@@ -50,7 +50,7 @@ export function addTwoNumbers(l1: ListNode<number>, l2: ListNode<number>) {
   const dummy = new ListNode(0)
 
   let tail = dummy,
-      sum = 0
+    sum = 0
 
   while (l1 ?? l2 ?? sum) {
     sum = (l1?.element ?? 0) + (l2?.element ?? 0) + sum
@@ -63,7 +63,10 @@ export function addTwoNumbers(l1: ListNode<number>, l2: ListNode<number>) {
   return dummy.next
 }
 
-export function addTwoNumbersRecursive(l1: ListNode<number>, l2: ListNode<number>) {
+export function addTwoNumbersRecursive(
+  l1: ListNode<number>,
+  l2: ListNode<number>
+) {
   const sum = l1.element + l2.element
   l1.element = sum % 10
   if (l1.next || l2.next) {

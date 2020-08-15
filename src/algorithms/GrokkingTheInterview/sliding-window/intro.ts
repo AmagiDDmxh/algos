@@ -11,8 +11,8 @@
 
  */
 
-const edgeTest: (K: number, arr: number[]) => boolean = 
-  (K, arr) => (K < 0 || K >= arr.length)
+const edgeTest: (K: number, arr: number[]) => boolean = (K, arr) =>
+  K < 0 || K >= arr.length
 
 // First by brute force
 export function finderBruteForce(K: number, arr: number[]) {

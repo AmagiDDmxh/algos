@@ -1,5 +1,5 @@
 // x1 > x2; f(x1) - f(x2) > 0 or < 0
-// 
+//
 function mono(nums: number[]) {
   let oddity = 0
   for (let i = 1; i < nums.length; i++) {
@@ -33,5 +33,5 @@ const input5 = [2, 2, 3]
 mono(input1)
 mono(input2)
 mono(input3)
-mono(input4)  // -> true
-mono(input5)  // -> true
+mono(input4) // -> true
+mono(input5) // -> true

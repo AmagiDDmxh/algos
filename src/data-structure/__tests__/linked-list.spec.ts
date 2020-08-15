@@ -2,7 +2,7 @@ import { LinkedList, Node } from '../linked-list'
 
 describe('Linked List', () => {
   it('should create from array', () => {
-    const list = LinkedList.create([1,2,3,4,5])
+    const list = LinkedList.create([1, 2, 3, 4, 5])
     expect(list.join()).toEqual('1,2,3,4,5')
   })
 

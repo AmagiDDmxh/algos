@@ -16,15 +16,12 @@ Fourth Pass
 (2 3 4 *1) -> (2 3 1 *4) -> (2 1 3 *4) -> (1 2 3 *4)
 
 */
-export function insertion<T>(
-  arr: Array<T>, 
-  comp = (a: T, b: T) => a > b
-) {
+export function insertion<T>(arr: Array<T>, comp = (a: T, b: T) => a > b) {
   const newArr = [...arr]
 
   for (let i = 0; i < newArr.length; i++) {
-    for (let j = i; swappable(newArr[j-1], newArr[j], comp); j--) {
-      swap<T>(newArr, j, j-1)
+    for (let j = i; swappable(newArr[j - 1], newArr[j], comp); j--) {
+      swap<T>(newArr, j, j - 1)
     }
   }
 
